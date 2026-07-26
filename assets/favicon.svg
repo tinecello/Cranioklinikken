@@ -1,1 +1,7 @@
-placeholder
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Cranioklinikken">
+  <circle cx="50" cy="50" r="30" fill="none" stroke="#0C5A71" stroke-width="7"/>
+  <rect x="38" y="8"  width="24" height="24" fill="#ffffff" stroke="#0C5A71" stroke-width="7"/>
+  <rect x="68" y="38" width="24" height="24" fill="#ffffff" stroke="#0C5A71" stroke-width="7"/>
+  <rect x="38" y="68" width="24" height="24" fill="#ffffff" stroke="#0C5A71" stroke-width="7"/>
+  <rect x="8"  y="38" width="24" height="24" fill="#ffffff" stroke="#0C5A71" stroke-width="7"/>
+</svg>
