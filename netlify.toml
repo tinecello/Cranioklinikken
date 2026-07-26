@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+
+# Kanonisk domene: send apex til www (bytt hvis du vil ha motsatt)
+[[redirects]]
+  from = "https://cranio.no/*"
+  to = "https://www.cranio.no/:splat"
+  status = 301
+  force = true
+
+# Pene URL-er
+[[redirects]]
+  from = "/blogg"
+  to = "/blogg.html"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
