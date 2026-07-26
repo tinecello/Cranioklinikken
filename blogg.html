@@ -150,25 +150,44 @@
   </section>
 
   <div class="wrap">
-    <div class="filter" id="filter">
-      <span id="antall" style="margin-left:auto;font-size:13px;color:#8A8272;">8 tekster</span>
+    <div class="filter" id="filter" style="justify-content:flex-end;">
+      <span id="antall" style="font-size:13px;color:#8A8272;">4 tekster</span>
     </div>
   </div>
 
   <section class="wrap" style="padding-top:40px;padding-bottom:0;">
-    <a class="frem" href="/blogg.html">
-      <img src="/assets/blogg-hovedbilde.jpg" alt="Hender som hviler mot nakken under behandling" width="880" height="660" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+    <a class="frem" href="/blogg/naar-kroppen-husker.html">
+      <img src="/assets/blogg-kroppen-husker.jpg" alt="Person som hviler på en benk med hånden mot hodet" width="880" height="660" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
       <div style="display:flex;flex-direction:column;gap:16px;">
-        <p class="kicker" style="color:var(--kobber);">Fremhevet · Metoden</p>
-        <h2 style="font-weight:300;font-size:38px;line-height:1.12;">Hva vi mener når vi sier at kroppen «husker»</h2>
-        <p style="font-size:16.5px;line-height:1.7;color:var(--tekst3);max-width:44ch;">Om forskjellen mellom å bære på noe og å holde igjen — og hvorfor lett berøring kan gjøre mer enn hard behandling.</p>
-        <p style="font-size:13px;color:var(--blek);">6 min lesning</p>
+        <p class="kicker" style="color:var(--kobber);">Fremhevet · Traume og nervesystem</p>
+        <h2 style="font-weight:300;font-size:38px;line-height:1.12;">Når kroppen husker</h2>
+        <p style="font-size:16.5px;line-height:1.7;color:var(--tekst3);max-width:44ch;">Traumer lagres i nervesystemet og kroppen. Om hvordan cranio gir kroppen rom til trygt å slippe det den holder på.</p>
+        <p style="font-size:13px;color:var(--blek);">Kjetil Vaajma · 2 min lesing</p>
       </div>
     </a>
   </section>
 
   <section class="wrap" style="padding-top:56px;">
-    <div class="kort-grid" id="kort"></div>
+    <div class="kort-grid" id="kort">
+      <a class="kort" href="/blogg/hvorfor-jevnlig-cranio.html">
+        <span class="kicker" style="color:#C97F4E;">Nervesystemet</span>
+        <h3 style="font-weight:400;font-size:25px;line-height:1.2;">Hvorfor ta jevnlig cranio?</h3>
+        <p style="font-size:15px;line-height:1.6;color:#4A463F;flex:1;">Når nervesystemet står i vedvarende stress, trenger det hjelp til å regulere seg. Derfor er regelmessig cranio vedlikehold, ikke luksus.</p>
+        <span style="display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E2DDD3;padding-top:12px;font-size:12.5px;color:#7A6A52;"><span>Kjetil Vaajma Kvalvik</span><span style="color:#8A8272;">2 min</span></span>
+      </a>
+      <a class="kort" href="/blogg/akupunktur-forskning.html">
+        <span class="kicker" style="color:#C97F4E;">Forskning</span>
+        <h3 style="font-weight:400;font-size:25px;line-height:1.2;">Akupunktur: fra gammel visdom til moderne vitenskap</h3>
+        <p style="font-size:15px;line-height:1.6;color:#4A463F;flex:1;">Hva sier forskningen om akupunktur? En gjennomgang av evidens, mekanismer, dokumenterte effekter og sikkerhet.</p>
+        <span style="display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E2DDD3;padding-top:12px;font-size:12.5px;color:#7A6A52;"><span>Cranioklinikken</span><span style="color:#8A8272;">8 min</span></span>
+      </a>
+      <a class="kort" href="/blogg/theta-tilstand.html">
+        <span class="kicker" style="color:#C97F4E;">Forskning</span>
+        <h3 style="font-weight:400;font-size:25px;line-height:1.2;">Hva skjer i kroppen når hjernen går i theta-tilstand?</h3>
+        <p style="font-size:15px;line-height:1.6;color:#4A463F;flex:1;">Theta-hjernebølger utløser dype, helbredende prosesser – og cranio kan fasilitere dem gjennom skånsom berøring.</p>
+        <span style="display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E2DDD3;padding-top:12px;font-size:12.5px;color:#7A6A52;"><span>Cranioklinikken</span><span style="color:#8A8272;">7 min</span></span>
+      </a>
+    </div>
   </section>
 
   <section style="border-top:1px solid var(--strek);background:var(--papir2);">
@@ -222,55 +241,13 @@
 <script>
 (function () {
   var b = document.querySelector('.burger'), s = document.getElementById('mobilmeny');
+  if (!b) return;
   b.addEventListener('click', function () {
     var open = s.dataset.open === 'true';
     s.dataset.open = String(!open);
     b.setAttribute('aria-expanded', String(!open));
     b.textContent = open ? 'Meny' : 'Lukk';
   });
-
-  var artikler = [
-    { emne:'Søvn og stress', tittel:'Søvn som ikke tar tak', inn:'Du sover åtte timer og våkner like sliten. Om forskjellen mellom å sove og å hvile.', av:'Kjetil', len:'4 min' },
-    { emne:'Søvn og stress', tittel:'Utbrenthet: når hvile ikke hjelper', inn:'Hvorfor ferie ikke fikser en kropp som har glemt hvordan den skrur seg av.', av:'Kjetil', len:'7 min' },
-    { emne:'Barn og familie', tittel:'Om barn, kolikk og cranio', inn:'Hva vi ser hos de minste, og hva vi ikke lover foreldre som er slitne.', av:'Noemy', len:'5 min' },
-    { emne:'Metoden', tittel:'Hvorfor vi ikke knekker noe', inn:'Om lett berøring som klinisk valg, ikke som forsiktighet.', av:'Kjetil', len:'5 min' },
-    { emne:'Metoden', tittel:'Kraniets rytme — hva vi faktisk kjenner', inn:'Et forsøk på å beskrive presist det som ofte forklares svevende.', av:'Kjetil', len:'9 min' },
-    { emne:'Fra klinikken', tittel:'Tre timer før du vurderer effekten', inn:'Hvorfor vi sier det, og hva vi gjør hvis det ikke virker.', av:'Tine', len:'4 min' },
-    { emne:'Forskning', tittel:'Hva vet vi, og hva vet vi ikke', inn:'Kunnskapsgrunnlaget for kraniosakralterapi, uten pynt.', av:'Tine', len:'10 min' },
-    { emne:'Fra klinikken', tittel:'Når kroppen reagerer etterpå', inn:'Om det sårbare første døgnet, og hvorfor det ikke er et tegn på at noe gikk galt.', av:'Noemy', len:'6 min' }
-  ];
-  var emner = ['Alle','Metoden','Søvn og stress','Barn og familie','Forskning','Fra klinikken'];
-  var filter = document.getElementById('filter'), holder = document.getElementById('kort'), antall = document.getElementById('antall');
-  var valgt = 'Alle';
-
-  function tegn() {
-    var liste = valgt === 'Alle' ? artikler : artikler.filter(function (a) { return a.emne === valgt; });
-    holder.innerHTML = '';
-    liste.forEach(function (a) {
-      var el = document.createElement('a');
-      el.className = 'kort'; el.href = '/blogg.html';
-      el.innerHTML = '<span class="kicker" style="color:#C97F4E;">' + a.emne + '</span>' +
-        '<h3 style="font-weight:400;font-size:25px;line-height:1.2;">' + a.tittel + '</h3>' +
-        '<p style="font-size:15px;line-height:1.6;color:#4A463F;flex:1;">' + a.inn + '</p>' +
-        '<span style="display:flex;justify-content:space-between;gap:16px;border-top:1px solid #E2DDD3;padding-top:12px;font-size:12.5px;color:#7A6A52;"><span>' + a.av + '</span><span style="color:#8A8272;">' + a.len + '</span></span>';
-      holder.appendChild(el);
-    });
-    antall.textContent = liste.length + (liste.length === 1 ? ' tekst' : ' tekster');
-  }
-
-  emner.forEach(function (e) {
-    var el = document.createElement('button');
-    el.type = 'button'; el.className = 'chip'; el.textContent = e;
-    el.setAttribute('aria-pressed', e === 'Alle' ? 'true' : 'false');
-    el.addEventListener('click', function () {
-      valgt = e;
-      filter.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
-      el.setAttribute('aria-pressed', 'true');
-      tegn();
-    });
-    filter.insertBefore(el, antall);
-  });
-  tegn();
 })();
 </script>
 </body>
