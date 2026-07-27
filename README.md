@@ -35,7 +35,7 @@ assets/         bilder, video, favicon  ← MÅ FYLLES, se under
 | `hilsen-kjetil.vtt` | **undertekster** til Kjetil-videoen | se punkt 4 |
 | `behandling.jpg` | bilde i Metoden-seksjonen | 880×1056 |
 | `avslutning.jpg` | bakgrunn nederst | 1600×900 |
-| `blogg-hovedbilde.jpg` | fremhevet artikkel | 880×660 |
+| `blogg-*.jpg` | bloggbilder (hentet fra Wix, ligger i pakken) | 1600 px bred |
 | `og-bilde.jpg` | delingsbilde | **1200×630**, tekstfri |
 | `favicon.svg` + `apple-touch-icon.png` | ikoner | 180×180 for apple |
 
@@ -65,7 +65,7 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
 - Sikkerhetsheadere og ett års cache på assets via `netlify.toml`
 - apex → www-omdirigering (301) så Google ser én kanonisk adresse
 - `WebSite`-node som binder sidene sammen, og `isPartOf` på FAQ-en
-- `MedicalBusiness` utvidet med telefon, e-post, kart, koordinater,
+- `MedicalBusiness` utvidet med e-post, kart, koordinater,
   åpningstider, betalingsmåter og `MedicalTherapy` som tjeneste
 - `preconnect` og `preload` av hovedbildet (bedre LCP)
 - Pene URL-er: /blogg, og /index.html → /
@@ -77,21 +77,20 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
 1. **Bytt domenet.** Søk og erstatt `https://www.cranio.no` i `index.html`,
    `blogg.html`, `sitemap.xml`, `robots.txt` og `netlify.toml` hvis adressen blir
    en annen.
-2. **Telefonnummer og e-post — MÅ KONTROLLERES.** Jeg har satt inn
-   +47 979 45 223 og post@cranio.no i JSON-LD på forsiden som plassholdere.
-   Er de feil, blir de et aktivt SEO-problem: Google sammenligner mot Google
-   Business Profile. Rett dem, og legg samme verdier synlig i footeren som
-   klikkbar tel:-lenke.
-3. **Åpningstider — MÅ KONTROLLERES.** Står nå som man–fre 09–20 i JSON-LD.
-   Skal være nøyaktig det samme som i Google Business Profile.
+2. **Kontaktinfo — bekreftet.** Klinikken har ikke felles telefonnummer, så
+   `telephone` er tatt ut av JSON-LD; praktiske spørsmål går direkte til
+   terapeuten. E-post `post@cranio.no` ligger i JSON-LD og synlig i footeren
+   på alle sider. Sørg for at Google Business Profile viser det samme.
+3. **Åpningstider.** Tidene varierer; kjernetid man–fre 09:30–20:30 er lagt inn
+   i JSON-LD. Bruk samme kjernetid i Google Business Profile.
 
 4. **Undertekster** til Kjetil-videoen (`hilsen-kjetil.vtt`). Uten dem faller
    `<track>`-taggen bare bort, men de gir både tilgjengelighet og indeksering
    av det han faktisk sier.
-5. **Bloggartiklene.** Titlene er forslag. Hver artikkel bør få egen side
-   (`/blogg/sovn-som-ikke-tar-tak.html`) med `BlogPosting`-schema,
-   `datePublished` og forfatter — det er dette som faktisk henter søketrafikk.
-   Legg dem inn i `sitemap.xml` etter hvert.
+5. **Bloggartiklene.** De fire publiserte Wix-innleggene ligger nå som egne sider
+   under `/blogg/` med `BlogPosting`-schema, `datePublished`, forfatter og
+   lokale bilder, og er lagt inn i `sitemap.xml`. Nye innlegg lages etter samme mal.
+   Vurder 301-redirect fra de gamle `/post/…`-URL-ene når Wix kobles av.
 6. **Google Business Profile.** Viktigere enn nettsiden for «kraniosakralterapi
    Oslo»-søk. Sørg for at navn, adresse og åpningstider er identiske med siden.
 7. **Google Search Console + Bing Webmaster Tools:** meld inn sitemap.
