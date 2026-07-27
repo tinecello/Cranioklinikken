@@ -8,6 +8,37 @@
   status = 301
   force = true
 
+# Gamle Wix-URL-er → nye sider (behold søkeposisjonene)
+[[redirects]]
+  from = "/blog"
+  to = "/blogg.html"
+  status = 301
+
+[[redirects]]
+  from = "/post/når-kroppen-husker"
+  to = "/blogg/nar-kroppen-husker.html"
+  status = 301
+
+[[redirects]]
+  from = "/post/hvorfor-ta-jevnlig-cranio"
+  to = "/blogg/hvorfor-ta-jevnlig-cranio.html"
+  status = 301
+
+[[redirects]]
+  from = "/post/hva-skjer-i-kroppen-når-hjernen-går-i-theta-tilstand"
+  to = "/blogg/theta-tilstand.html"
+  status = 301
+
+[[redirects]]
+  from = "/post/akupunktur-fra-gammel-visdom-til-moderne-vitenskap-hva-sier-forskningen"
+  to = "/blogg/akupunktur-forskningen.html"
+  status = 301
+
+[[redirects]]
+  from = "/team-4"
+  to = "/terapeuter.html"
+  status = 301
+
 # Pene URL-er
 [[redirects]]
   from = "/blogg"

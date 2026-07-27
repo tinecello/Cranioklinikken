@@ -21,11 +21,11 @@
 <meta property="og:image:alt" content="Behandlingsrommet hos Cranioklinikken Oslo">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" fetchpriority="high" href="/assets/klinikk-poster.jpg">
+<link rel="preload" as="image" fetchpriority="high" href="assets/klinikk-poster.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,200;6..72,300;6..72,400;6..72,500&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
@@ -41,13 +41,12 @@
   "priceRange": "990–1390 NOK",
   "currenciesAccepted": "NOK",
   "paymentAccepted": "Vipps, kort",
-  "telephone": "+47 979 45 223",
   "email": "post@cranio.no",
   "logo": "https://www.cranio.no/assets/logo-symbol.png",
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Akersveien+19,+0177+Oslo",
   "geo": { "@type": "GeoCoordinates", "latitude": 59.9169, "longitude": 10.7457 },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "20:30" }
   ],
   "availableService": [
     { "@type": "MedicalTherapy", "name": "Kraniosakralterapi", "howPerformed": "Lett, lyttende berøring mot hodeskalle, korsben og bindevev. Klærne beholdes på.", "relevantSpecialty": "PhysicalTherapy" }
@@ -108,7 +107,7 @@
   a { color:var(--gron); text-decoration:none; }
   a:hover { color:var(--kobber); }
   img,video { max-width:100%; height:auto; }
-  .wrap { max-width:1240px; margin:0 auto; padding:0 40px; }
+  .wrap { max-width:1240px; margin:0 auto; padding-left:40px; padding-right:40px; }
   .kicker { font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--blek); }
   .btn { display:inline-block; background:var(--gron); color:var(--papir); font-size:15px; font-weight:500; padding:15px 28px; border-radius:2px; }
   .btn:hover { background:var(--kobber); color:var(--tekst); }
@@ -122,15 +121,15 @@
   .merke span { font-family:Newsreader,serif; font-size:17px; color:var(--tekst); }
   nav.hoved { display:flex; align-items:center; gap:26px; font-size:13px; }
   nav.hoved .lenker { display:flex; align-items:center; gap:26px; }
-  nav.hoved a:not(.btn) { color:var(--tekst3); }
+  nav.hoved a:not(.btn):not(.cta-hdr) { color:var(--tekst3); }
   .cta-hdr { background:var(--gron); color:var(--papir); padding:11px 20px; border-radius:2px; font-weight:500; }
   .cta-hdr:hover { background:var(--kobber); color:var(--tekst); }
   .burger { display:none; align-items:center; justify-content:center; width:44px; height:44px; background:transparent; border:1px solid var(--strek2); border-radius:2px; cursor:pointer; font:inherit; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--tekst); }
   .skuff { display:none; flex-basis:100%; width:100%; flex-direction:column; padding:8px 0 22px; border-top:1px solid var(--strek); font-size:17px; }
   .skuff a { color:var(--tekst); padding:14px 0; border-bottom:1px solid #EDE8DE; }
   .skuff[data-open="true"] { display:flex; }
-  section { padding:88px 0; }
-  .grid { display:grid; gap:60px; }
+  section { padding:132px 0; }
+  .grid { display:grid; gap:72px; }
   .g-hero { grid-template-columns:1.1fr 0.9fr; align-items:end; }
   .g-2 { grid-template-columns:1fr 1fr; align-items:center; }
   .g-3 { grid-template-columns:repeat(3,1fr); gap:40px; }
@@ -164,7 +163,7 @@
     .fakta-rad { grid-template-columns:1fr 1fr; }
     .fakta-rad div { border-left:0 !important; padding:18px 0 !important; }
     .sidekol { border-left:0; padding-left:0; border-top:1px solid var(--strek2); padding-top:24px; }
-    section { padding:56px 0; }
+    section { padding:76px 0; }
     h1 { font-size:clamp(32px,8vw,44px) !important; }
     h2 { font-size:clamp(26px,6.5vw,34px) !important; }
   }
@@ -176,16 +175,16 @@
 
 <header>
   <div class="hdrow">
-    <a class="merke" href="/" aria-label="Cranioklinikken Oslo – til forsiden">
-      <img src="/assets/logo-symbol.png" alt="" width="30" height="30" style="display:block;height:30px;width:auto;">
+    <a class="merke" href="index.html" aria-label="Cranioklinikken Oslo – til forsiden">
+      <img src="assets/logo-symbol.png" alt="" width="30" height="30" style="display:block;height:30px;width:auto;">
       <span>Cranioklinikken Oslo</span>
     </a>
     <nav class="hoved" aria-label="Hovedmeny">
       <div class="lenker">
         <a href="#metoden">Metoden</a>
         <a href="#behandlingen">Behandlingen</a>
-        <a href="https://www.cranio.no/team-4">Terapeuter&nbsp;↗</a>
-        <a href="/blogg.html">Blogg</a>
+        <a href="terapeuter.html">Terapeuter</a>
+        <a href="blogg.html">Blogg</a>
       </div>
       <a class="cta-hdr" href="https://www.cranio.no/book-online">Book time&nbsp;↗</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="mobilmeny">Meny</button>
@@ -193,15 +192,15 @@
     <div class="skuff" id="mobilmeny" data-open="false">
       <a href="#metoden">Metoden</a>
       <a href="#behandlingen">Behandlingen</a>
-      <a href="https://www.cranio.no/team-4">Terapeuter&nbsp;↗</a>
-      <a href="/blogg.html">Blogg</a>
+      <a href="terapeuter.html">Terapeuter</a>
+      <a href="blogg.html">Blogg</a>
     </div>
   </div>
 </header>
 
 <main id="innhold">
 
-  <section class="wrap" style="padding-top:96px;padding-bottom:72px;">
+  <section class="wrap" style="padding-top:104px;padding-bottom:112px;">
     <div class="grid g-hero">
       <div style="display:flex;flex-direction:column;gap:28px;">
         <p class="kicker">Kraniosakralterapi · Akersveien 19, Oslo</p>
@@ -213,7 +212,7 @@
         </div>
       </div>
       <figure style="margin:0;display:flex;flex-direction:column;gap:10px;">
-        <video src="/assets/klinikk-atmosfaere.mp4" autoplay muted loop playsinline poster="/assets/klinikk-poster.jpg" width="880" height="1173" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#EDE8DE;" aria-label="Stemningsvideo fra klinikken i Akersveien 19"></video>
+        <video src="assets/klinikk-atmosfaere.mp4" autoplay muted loop playsinline poster="assets/klinikk-poster.jpg" width="880" height="1173" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#EDE8DE;" aria-label="Stemningsvideo fra klinikken i Akersveien 19"></video>
         <figcaption style="font-size:11.5px;color:#8A8272;">Klinikken, Akersveien 19</figcaption>
       </figure>
     </div>
@@ -243,7 +242,7 @@
       <p class="kicker" id="plage-tittel">Jeg sover dårlig</p>
       <div style="display:flex;flex-direction:column;gap:16px;">
         <p id="plage-svar" style="font-family:Newsreader,serif;font-weight:300;font-size:25px;line-height:1.4;max-width:52ch;">Søvn er ofte det første som endrer seg. Når nervesystemet får slippe beredskapen, faller innsovningen lettere på plass — mange merker det etter første eller andre time.</p>
-        <a class="lenke" style="align-self:flex-start;" href="https://www.cranio.no/team-4">Se terapeutene&nbsp;↗</a>
+        <a class="lenke" style="align-self:flex-start;" href="terapeuter.html">Se terapeutene&nbsp;↗</a>
       </div>
     </div>
   </section>
@@ -251,7 +250,7 @@
   <section class="wrap" id="metoden">
     <div class="grid g-2">
       <div style="position:relative;overflow:hidden;">
-        <img src="/assets/behandling.jpg" alt="Lette hender holder om hodet under kraniosakral behandling" width="880" height="1056" loading="lazy" style="width:100%;aspect-ratio:5/6;object-fit:cover;display:block;">
+        <img src="assets/behandling.jpg" alt="Lette hender holder om hodet under kraniosakral behandling" width="880" height="1056" loading="lazy" style="width:100%;aspect-ratio:5/6;object-fit:cover;display:block;">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,59,58,0) 35%,rgba(15,59,58,0.7) 100%);"></div>
         <blockquote style="position:absolute;left:28px;right:28px;bottom:26px;margin:0;font-family:Newsreader,serif;font-style:italic;font-weight:300;font-size:21px;line-height:1.5;color:var(--papir);">Akkurat som vann må flyte fritt i naturen, må kroppens væsker sirkulere uhindret for at vi skal føle oss friske.</blockquote>
       </div>
@@ -261,7 +260,7 @@
         <p style="font-size:17px;line-height:1.7;color:var(--tekst2);max-width:48ch;">En skånsom behandlingsform som frigjør spenninger gjennom lette berøringer. Vi arbeider med kraniets naturlige rytme og kroppens væskesystemer for å gjenopprette balanse og flyt. Når spenning og stress løses opp, får kroppens egne selvhelbredende krefter arbeide.</p>
         <p style="font-size:17px;line-height:1.7;color:var(--tekst2);max-width:48ch;">Behandlingen er like effektiv som den er behagelig — og gir deg verktøy du kan bruke selv, mellom timene.</p>
         <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-          <a class="btn" href="/blogg.html">Les mer om metoden</a>
+          <a class="btn" href="blogg.html">Les mer om metoden</a>
           <span style="font-size:13.5px;color:var(--blek);max-width:26ch;line-height:1.5;">Del av Vaajma, som også utdanner kraniosakralterapeuter i Norge.</span>
         </div>
       </div>
@@ -275,7 +274,7 @@
         <h2 style="font-weight:300;font-size:42px;line-height:1.1;">Et par ord fra Kjetil</h2>
         <p style="font-size:16.5px;line-height:1.7;color:#C3D3D0;max-width:38ch;">Om hvorfor vi holder på med dette, hva du kan forvente av den første timen, og hvorfor ingen her kommer til å love deg mirakler.</p>
       </div>
-      <video src="/assets/hilsen-kjetil.mp4" controls playsinline preload="metadata" poster="/assets/kjetil-poster.jpg" width="1280" height="720" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0A2B2A;"></video>
+      <video src="assets/hilsen-kjetil.mp4" controls playsinline preload="metadata" poster="assets/kjetil-poster.jpg" width="1280" height="720" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0A2B2A;"></video>
     </div>
   </section>
 
@@ -310,7 +309,7 @@
         <h2 style="font-weight:300;font-size:42px;line-height:1.1;">Du velger terapeut selv</h2>
         <p style="font-size:17px;line-height:1.7;color:var(--tekst2);max-width:46ch;">Alle hos oss har ulik bakgrunn og ulike felt de arbeider mest med. På terapeutsiden finner du presentasjon, kontaktinfo og ledige timer — og booker direkte hos den du velger.</p>
         <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
-          <a class="btn" href="https://www.cranio.no/team-4">Se terapeutene&nbsp;↗</a>
+          <a class="btn" href="terapeuter.html">Se terapeutene&nbsp;↗</a>
           <a class="lenke" href="https://www.cranio.no/book-online">Gå rett til booking&nbsp;↗</a>
         </div>
       </div>
@@ -338,15 +337,15 @@
     <div class="wrap grid" style="grid-template-columns:0.9fr 1.1fr;">
       <div style="display:flex;flex-direction:column;gap:18px;">
         <p class="kicker">Blogg</p>
-        <h2 style="font-weight:300;font-size:40px;line-height:1.1;">Hva vi mener når vi sier at kroppen «husker»</h2>
+        <h2 style="font-weight:300;font-size:40px;line-height:1.1;">Når kroppen husker</h2>
         <p style="font-size:16.5px;line-height:1.7;color:var(--tekst3);max-width:40ch;">Om forskjellen mellom å bære på noe og å holde igjen — og hvorfor lett berøring kan gjøre mer enn hard behandling.</p>
-        <a class="btn" style="align-self:flex-start;" href="/blogg.html">Les mer på vår blogg</a>
+        <a class="btn" style="align-self:flex-start;" href="blogg.html">Les mer på vår blogg</a>
       </div>
       <div style="display:flex;flex-direction:column;">
-        <a href="/blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Søvn som ikke tar tak</span><span style="font-size:12px;color:#8A8272;">4 min</span></a>
-        <a href="/blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Utbrenthet: når hvile ikke hjelper</span><span style="font-size:12px;color:#8A8272;">7 min</span></a>
-        <a href="/blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Om barn, kolikk og cranio</span><span style="font-size:12px;color:#8A8272;">5 min</span></a>
-        <a href="/blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Hvorfor vi ikke knekker noe</span><span style="font-size:12px;color:#8A8272;">5 min</span></a>
+        <a href="blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Søvn som ikke tar tak</span><span style="font-size:12px;color:#8A8272;">4 min</span></a>
+        <a href="blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Utbrenthet: når hvile ikke hjelper</span><span style="font-size:12px;color:#8A8272;">7 min</span></a>
+        <a href="blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Om barn, kolikk og cranio</span><span style="font-size:12px;color:#8A8272;">5 min</span></a>
+        <a href="blogg.html" style="border-top:1px solid var(--strek2);padding:20px 0;display:flex;align-items:baseline;justify-content:space-between;gap:24px;"><span style="font-family:Newsreader,serif;font-size:21px;">Hvorfor vi ikke knekker noe</span><span style="font-size:12px;color:#8A8272;">5 min</span></a>
       </div>
     </div>
   </section>
@@ -369,7 +368,7 @@
   </section>
 
   <section style="position:relative;overflow:hidden;background:var(--gron);padding:0;">
-    <img src="/assets/avslutning.jpg" alt="" width="1600" height="900" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.38;">
+    <img src="assets/avslutning.jpg" alt="" width="1600" height="900" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.38;">
     <div class="wrap" style="position:relative;padding-top:132px;padding-bottom:132px;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center;">
       <h2 style="font-weight:200;font-size:clamp(30px,4.2vw,52px);line-height:1.12;color:var(--papir);max-width:24ch;">Velkommen til din reise mot balanse og fornyet energi.</h2>
       <a class="btn btn-lys" href="https://www.cranio.no/book-online">Book første time&nbsp;↗</a>
@@ -383,22 +382,23 @@
   <div class="f-grid">
     <div style="display:flex;flex-direction:column;gap:16px;">
       <div style="display:flex;align-items:center;gap:12px;">
-        <img src="/assets/logo-symbol.png" alt="" width="28" height="28" loading="lazy" style="height:28px;width:auto;filter:invert(1) brightness(1.6);">
+        <img src="assets/logo-symbol.png" alt="" width="28" height="28" loading="lazy" style="height:28px;width:auto;filter:invert(1) brightness(1.6);">
         <span style="font-family:Newsreader,serif;font-size:17px;color:var(--papir);">Cranioklinikken Oslo</span>
       </div>
       <p style="font-size:15px;line-height:1.7;max-width:34ch;">Akersveien 19, 0177 Oslo</p>
+      <p style="font-size:15px;line-height:1.7;"><a href="mailto:post@cranio.no">post@cranio.no</a></p>
       <p style="font-size:13.5px;line-height:1.65;color:#9A9385;max-width:40ch;">Praktiske spørsmål og beskjeder om timen tar du direkte med terapeuten din — kontaktinfo finner du på terapeutsiden.</p>
     </div>
     <nav style="display:flex;flex-direction:column;gap:12px;" aria-label="Meny">
       <p class="kicker">Meny</p>
       <a href="#metoden">Metoden</a>
-      <a href="https://www.cranio.no/team-4">Terapeuter&nbsp;↗</a>
+      <a href="terapeuter.html">Terapeuter</a>
       <a href="https://www.cranio.no/book-online">Book time&nbsp;↗</a>
       <a href="https://www.vaajma.org/craniosacral-education">Utdanning&nbsp;↗</a>
     </nav>
     <nav style="display:flex;flex-direction:column;gap:12px;" aria-label="Klinikken">
       <p class="kicker">Klinikken</p>
-      <a href="/blogg.html">Blogg</a>
+      <a href="blogg.html">Blogg</a>
       <a href="https://www.cranio.no/vilkår-og-betingelser-for-behandling">Vilkår&nbsp;↗</a>
       <div style="display:flex;gap:14px;margin-top:6px;">
         <a href="https://www.instagram.com/cranioklinikken" style="color:#9A9385;font-size:13px;">Instagram</a>
