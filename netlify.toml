@@ -1,6 +1,9 @@
 [build]
   publish = "."
 
+[build.processing.html]
+  pretty_urls = true
+
 # Kanonisk domene: send apex til www (bytt hvis du vil ha motsatt)
 [[redirects]]
   from = "https://cranio.no/*"
@@ -11,38 +14,32 @@
 # Gamle Wix-URL-er → nye sider (behold søkeposisjonene)
 [[redirects]]
   from = "/blog"
-  to = "/blogg.html"
+  to = "/blogg/"
   status = 301
 
 [[redirects]]
   from = "/post/når-kroppen-husker"
-  to = "/blogg/nar-kroppen-husker.html"
+  to = "/blogg/nar-kroppen-husker/"
   status = 301
 
 [[redirects]]
   from = "/post/hvorfor-ta-jevnlig-cranio"
-  to = "/blogg/hvorfor-ta-jevnlig-cranio.html"
+  to = "/blogg/hvorfor-ta-jevnlig-cranio/"
   status = 301
 
 [[redirects]]
   from = "/post/hva-skjer-i-kroppen-når-hjernen-går-i-theta-tilstand"
-  to = "/blogg/theta-tilstand.html"
+  to = "/blogg/theta-tilstand/"
   status = 301
 
 [[redirects]]
   from = "/post/akupunktur-fra-gammel-visdom-til-moderne-vitenskap-hva-sier-forskningen"
-  to = "/blogg/akupunktur-forskningen.html"
+  to = "/blogg/akupunktur-forskningen/"
   status = 301
 
 [[redirects]]
   from = "/team-4"
-  to = "/terapeuter.html"
-  status = 301
-
-# Pene URL-er
-[[redirects]]
-  from = "/blogg"
-  to = "/blogg.html"
+  to = "/terapeuter/"
   status = 301
 
 [[redirects]]

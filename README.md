@@ -28,11 +28,10 @@ assets/         bilder, video, favicon  ← MÅ FYLLES, se under
 | Fil | Hva | Merknad |
 |---|---|---|
 | `logo-symbol.png` | logoen | finnes i dagens utkast |
-| `klinikk-atmosfaere.mp4` | stående klinikkvideo | komprimer til < 4 MB, H.264 |
+| `klinikk-atmosfaere.mp4` | stående klinikkvideo | komprimert til 3,4 MB |
 | `klinikk-poster.jpg` | første bilde av klinikkvideoen | 880×1173 |
-| `hilsen-kjetil.mp4` | Kjetils hilsen, liggende | |
+| `hilsen-kjetil.mp4` | Kjetils hilsen, liggende | 3,6 MB; undertekster er innbrent i videoen |
 | `kjetil-poster.jpg` | posterbilde | 1280×720 |
-| `hilsen-kjetil.vtt` | **undertekster** til Kjetil-videoen | se punkt 4 |
 | `behandling.jpg` | bilde i Metoden-seksjonen | 880×1056 |
 | `avslutning.jpg` | bakgrunn nederst | 1600×900 |
 | `blogg-*.jpg` | bloggbilder (hentet fra Wix, ligger i pakken) | 1600 px bred |
@@ -68,7 +67,9 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
 - `MedicalBusiness` utvidet med e-post, kart, koordinater,
   åpningstider, betalingsmåter og `MedicalTherapy` som tjeneste
 - `preconnect` og `preload` av hovedbildet (bedre LCP)
-- Pene URL-er: /blogg, og /index.html → /
+- Terapeutbilder er lagret lokalt; siden er ikke avhengig av Wix-bilder
+- Pene URL-er med avsluttende skråstrek: `/blogg/`, `/terapeuter/` og
+  `/blogg/<artikkelnavn>/`; `/index.html` omdirigeres til `/`
 
 ---
 
@@ -84,10 +85,9 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
 3. **Åpningstider.** Tidene varierer; kjernetid man–fre 09:30–20:30 er lagt inn
    i JSON-LD. Bruk samme kjernetid i Google Business Profile.
 
-4. **Undertekster** til Kjetil-videoen (`hilsen-kjetil.vtt`). Uten dem faller
-   `<track>`-taggen bare bort, men de gir både tilgjengelighet og indeksering
-   av det han faktisk sier.
-5. **Bloggartiklene.** De fire publiserte Wix-innleggene ligger nå som egne sider
+4. **Undertekster.** Kjetil-videoen har innbrente undertekster som beholdes ved
+   publisering. Det brukes derfor ingen separat VTT-fil eller `<track>`-tagg.
+5. **Bloggartiklene.** De sju publiserte innleggene ligger nå som egne sider
    under `/blogg/` med `BlogPosting`-schema, `datePublished`, forfatter og
    lokale bilder, og er lagt inn i `sitemap.xml`. Nye innlegg lages etter samme mal.
    Vurder 301-redirect fra de gamle `/post/…`-URL-ene når Wix kobles av.
@@ -105,8 +105,8 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
 ## 4. Etter publisering
 
 Kjør Lighthouse i Chrome (Ytelse / Tilgjengelighet / SEO) og
-[Rich Results Test](https://search.google.com/test/rich-results) på begge sider.
-Den største gjenstående ytelsesposten er videofilene — hold dem under 4 MB hver.
+[Rich Results Test](https://search.google.com/test/rich-results) på alle sidetyper.
+Begge videofilene er komprimert til under 4 MB.
 
 ---
 
