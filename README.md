@@ -68,8 +68,8 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
   åpningstider, betalingsmåter og `MedicalTherapy` som tjeneste
 - `preconnect` og `preload` av hovedbildet (bedre LCP)
 - Terapeutbilder er lagret lokalt; siden er ikke avhengig av Wix-bilder
-- Pene URL-er med avsluttende skråstrek: `/blogg/`, `/terapeuter/` og
-  `/blogg/<artikkelnavn>/`; `/index.html` omdirigeres til `/`
+- Pene URL-er uten filendelse: `/blogg`, `/terapeuter` og
+  `/blogg/<artikkelnavn>`; alle `.html`-varianter omdirigeres med 301
 
 ---
 

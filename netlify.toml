@@ -14,38 +14,94 @@
 # Gamle Wix-URL-er → nye sider (behold søkeposisjonene)
 [[redirects]]
   from = "/blog"
-  to = "/blogg/"
+  to = "/blogg"
   status = 301
 
 [[redirects]]
   from = "/post/når-kroppen-husker"
-  to = "/blogg/nar-kroppen-husker/"
+  to = "/blogg/nar-kroppen-husker"
   status = 301
 
 [[redirects]]
   from = "/post/hvorfor-ta-jevnlig-cranio"
-  to = "/blogg/hvorfor-ta-jevnlig-cranio/"
+  to = "/blogg/hvorfor-ta-jevnlig-cranio"
   status = 301
 
 [[redirects]]
   from = "/post/hva-skjer-i-kroppen-når-hjernen-går-i-theta-tilstand"
-  to = "/blogg/theta-tilstand/"
+  to = "/blogg/theta-tilstand"
   status = 301
 
 [[redirects]]
   from = "/post/akupunktur-fra-gammel-visdom-til-moderne-vitenskap-hva-sier-forskningen"
-  to = "/blogg/akupunktur-forskningen/"
+  to = "/blogg/akupunktur-forskningen"
   status = 301
 
 [[redirects]]
   from = "/team-4"
-  to = "/terapeuter/"
+  to = "/terapeuter"
   status = 301
+
+# Sørg for én offentlig URL per side, også når en fysisk .html-fil finnes.
+[[redirects]]
+  from = "/blogg.html"
+  to = "/blogg"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terapeuter.html"
+  to = "/terapeuter"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/nar-kroppen-husker.html"
+  to = "/blogg/nar-kroppen-husker"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/hvorfor-ta-jevnlig-cranio.html"
+  to = "/blogg/hvorfor-ta-jevnlig-cranio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/theta-tilstand.html"
+  to = "/blogg/theta-tilstand"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/akupunktur-forskningen.html"
+  to = "/blogg/akupunktur-forskningen"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/kraniosakralterapi-oslo.html"
+  to = "/blogg/kraniosakralterapi-oslo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/kraniosakralterapi-sovnproblemer.html"
+  to = "/blogg/kraniosakralterapi-sovnproblemer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blogg/kraniosakralterapi-baby-kolikk.html"
+  to = "/blogg/kraniosakralterapi-baby-kolikk"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
+  force = true
 
 [[headers]]
   for = "/*"
