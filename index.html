@@ -145,6 +145,18 @@
   .chip[aria-pressed="true"] { background:var(--gron); color:var(--papir); border-color:var(--gron); }
   .sitat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--strek); border:1px solid var(--strek); }
   .sitat-grid figure { margin:0; background:var(--papir); padding:34px; display:flex; flex-direction:column; gap:16px; }
+  /* Klientene forteller – én stemme om gangen */
+  .sitat-score { font-family:Newsreader,serif; font-weight:300; font-size:clamp(58px,7vw,88px); line-height:1; color:var(--gron); }
+  .sitat-stjerner { display:block; font-size:20px; letter-spacing:6px; color:var(--kobber); margin-top:10px; }
+  .sitat-scene { position:relative; max-width:820px; margin:clamp(40px,5vw,56px) auto 0; min-height:230px; }
+  .sitat-slide { position:absolute; inset:0; margin:0; opacity:0; transform:translateY(14px); transition:opacity .7s ease,transform .7s ease; pointer-events:none; }
+  .sitat-slide.synlig { opacity:1; transform:none; pointer-events:auto; }
+  .sitat-slide blockquote { margin:0; font-family:Newsreader,serif; font-weight:300; font-style:italic; font-size:clamp(23px,3vw,34px); line-height:1.4; color:var(--gron); }
+  .sitat-slide figcaption { margin-top:26px; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--blek); }
+  .sitat-prikker { display:flex; justify-content:center; gap:10px; margin-top:36px; }
+  .sitat-prikker button { width:34px; height:3px; border:0; padding:0; background:var(--strek2); cursor:pointer; transition:background .3s; }
+  .sitat-prikker button.synlig { background:var(--kobber); }
+  @media (prefers-reduced-motion:reduce) { .sitat-slide { transition:none; } }
   details { border-top:1px solid var(--strek2); }
   summary { cursor:pointer; list-style:none; padding:22px 0; font-size:18px; font-weight:500; display:flex; justify-content:space-between; gap:20px; }
   summary::-webkit-details-marker { display:none; }
@@ -169,6 +181,7 @@
   }
   @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } [data-reveal] { opacity:1 !important; transform:none !important; } }
 </style>
+<base target="_blank">
 </head>
 <body>
 <a class="skip" href="#innhold">Hopp til innhold</a>
@@ -320,16 +333,34 @@
     </div>
   </section>
 
-  <section class="wrap">
-    <div style="display:flex;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:44px;">
-      <h2 style="font-weight:300;font-size:40px;line-height:1.1;">Klientene forteller:</h2>
-      <a href="https://www.google.com/search?q=Cranioklinikken+Oslo+anmeldelser" style="font-size:13.5px;color:var(--blek);">★★★★★ 5,0 på Google&nbsp;↗</a>
-    </div>
-    <div class="sitat-grid">
-      <figure><blockquote style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:23px;line-height:1.45;">«Roen og tilstedeværelsen i egen kropp etter hver behandling kan ikke beskrives med ord.»</blockquote><figcaption style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blek);">Mette Kolstad · Google</figcaption></figure>
-      <figure><blockquote style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:23px;line-height:1.45;">«Kroppen får slippe det den ikke lenger trenger å holde på – det hele føles rett og slett som å komme hjem.»</blockquote><figcaption style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blek);">Christian Wierød · Google</figcaption></figure>
-      <figure><blockquote style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:23px;line-height:1.45;">«Behandlingen er alltid personlig tilpasset og akkurat det jeg trenger – en mykere hverdag, i kropp, sjel og sinn.»</blockquote><figcaption style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blek);">OsloC · Google</figcaption></figure>
-      <figure><blockquote style="margin:0;font-family:Newsreader,serif;font-weight:300;font-size:23px;line-height:1.45;">«The soul of CranioSacral studies Oslo — healing is the natural consequence of human connection.»</blockquote><figcaption style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--blek);">Noemy Sanchez · Google</figcaption></figure>
+  <section style="border-top:1px solid var(--strek);background:var(--papir2);text-align:center;" aria-label="Klientene forteller">
+    <div class="wrap">
+      <p class="kicker">Klientene forteller</p>
+      <div style="margin-top:26px;">
+        <span class="sitat-score">5,0</span>
+        <span class="sitat-stjerner" aria-hidden="true">★★★★★</span>
+        <span style="display:block;margin-top:10px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blek);">På Google</span>
+      </div>
+      <div class="sitat-scene" id="sitatScene" tabindex="0" aria-roledescription="karusell" aria-label="Klientsitater">
+        <figure class="sitat-slide synlig">
+          <blockquote>«Roen og tilstedeværelsen i egen kropp etter hver behandling kan ikke beskrives med ord.»</blockquote>
+          <figcaption>Mette Kolstad · Google</figcaption>
+        </figure>
+        <figure class="sitat-slide">
+          <blockquote>«Kroppen får slippe det den ikke lenger trenger å holde på – det hele føles rett og slett som å komme hjem.»</blockquote>
+          <figcaption>Christian Wierød · Google</figcaption>
+        </figure>
+        <figure class="sitat-slide">
+          <blockquote>«Behandlingen er alltid personlig tilpasset og akkurat det jeg trenger – en mykere hverdag, i kropp, sjel og sinn.»</blockquote>
+          <figcaption>OsloC · Google</figcaption>
+        </figure>
+        <figure class="sitat-slide">
+          <blockquote>«The soul of CranioSacral studies Oslo — healing is the natural consequence of human connection.»</blockquote>
+          <figcaption>Noemy Sanchez · Google</figcaption>
+        </figure>
+      </div>
+      <div class="sitat-prikker" id="sitatPrikker" aria-label="Velg sitat"></div>
+      <a class="lenke" style="margin-top:40px;display:inline-block;" href="https://www.google.com/search?q=Cranioklinikken+Oslo+anmeldelser">Les alle anmeldelsene på Google&nbsp;↗</a>
     </div>
   </section>
 
@@ -444,6 +475,48 @@
     });
     holder.appendChild(el);
   });
+
+  // Klientene forteller – karusell, én stemme om gangen
+  var scene = document.getElementById('sitatScene');
+  var slides = scene.querySelectorAll('.sitat-slide');
+  var prikker = document.getElementById('sitatPrikker');
+  var aktiv = 0, timer = null, INTERVALL = 6000;
+
+  slides.forEach(function (_, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Vis sitat ' + (i + 1) + ' av ' + slides.length);
+    if (i === 0) b.classList.add('synlig');
+    b.addEventListener('click', function () { gåTil(i); nullstill(); });
+    prikker.appendChild(b);
+  });
+  var knapper = prikker.querySelectorAll('button');
+
+  function gåTil(i) {
+    slides[aktiv].classList.remove('synlig');
+    knapper[aktiv].classList.remove('synlig');
+    aktiv = i;
+    slides[aktiv].classList.add('synlig');
+    knapper[aktiv].classList.add('synlig');
+  }
+  function neste() { gåTil((aktiv + 1) % slides.length); }
+  function forrige() { gåTil((aktiv - 1 + slides.length) % slides.length); }
+  function start() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(neste, INTERVALL);
+  }
+  function stopp() { clearInterval(timer); timer = null; }
+  function nullstill() { stopp(); start(); }
+
+  scene.addEventListener('mouseenter', stopp);
+  scene.addEventListener('mouseleave', start);
+  scene.addEventListener('focusin', stopp);
+  scene.addEventListener('focusout', start);
+  scene.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { neste(); nullstill(); }
+    if (e.key === 'ArrowLeft') { forrige(); nullstill(); }
+  });
+  start();
 })();
 </script>
 </body>
