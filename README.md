@@ -28,8 +28,9 @@ assets/         bilder, video, favicon  ← MÅ FYLLES, se under
 | Fil | Hva | Merknad |
 |---|---|---|
 | `logo-symbol.png` | logoen | finnes i dagens utkast |
-| `klinikk-atmosfaere.mp4` | stående klinikkvideo | komprimert til 3,4 MB |
-| `klinikk-poster.jpg` | første bilde av klinikkvideoen | 880×1173 |
+| `klinikk-atmosfaere-v2.mp4` | stående klinikkvideo | 33 sekunder, komprimert til 4,4 MB |
+| `klinikk-poster-v2.jpg` | posterbilde for klinikkvideoen | 720×960 |
+| `klinikk-poster.jpg` | klinikkbilde brukt i blogginnlegg | 880×1564 |
 | `hilsen-kjetil.mp4` | Kjetils hilsen, liggende | 3,6 MB; undertekster er innbrent i videoen |
 | `kjetil-poster.jpg` | posterbilde | 1280×720 |
 | `behandling.jpg` | bilde i Metoden-seksjonen | 880×1056 |
@@ -106,7 +107,7 @@ Lagre foto som WebP i tillegg hvis mulig — halverer vekten.
 
 Kjør Lighthouse i Chrome (Ytelse / Tilgjengelighet / SEO) og
 [Rich Results Test](https://search.google.com/test/rich-results) på alle sidetyper.
-Begge videofilene er komprimert til under 4 MB.
+Begge videofilene er optimalisert for nett; klinikkvideoen er 4,4 MB og videohilsenen er 3,4 MB.
 
 ---
 
