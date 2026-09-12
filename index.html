@@ -45,9 +45,6 @@
   "logo": "https://www.cranio.no/assets/logo-symbol.png",
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Akersveien+19,+0177+Oslo",
   "geo": { "@type": "GeoCoordinates", "latitude": 59.9169, "longitude": 10.7457 },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "20:30" }
-  ],
   "availableService": [
     { "@type": "MedicalTherapy", "name": "Kraniosakralterapi", "howPerformed": "Lett, lyttende berøring mot hodeskalle, korsben og bindevev. Klærne beholdes på.", "relevantSpecialty": "PhysicalTherapy" }
   ],
@@ -91,7 +88,7 @@
     { "@type": "Question", "name": "Gjør det vondt?", "acceptedAnswer": { "@type": "Answer", "text": "Nei. Berøringen er så lett at mange blir overrasket. Ingen manipulasjon, ingen knekk." } },
     { "@type": "Question", "name": "Hva kan jeg forvente etterpå?", "acceptedAnswer": { "@type": "Answer", "text": "De fleste merker bedre søvn, mindre stress og mer ro. Noen kjenner seg litt sårbare det første døgnet — det er en normal reaksjon." } },
     { "@type": "Question", "name": "Hvor mange timer trenger jeg?", "acceptedAnswer": { "@type": "Answer", "text": "Det varierer. Vi anbefaler tre timer før du vurderer effekten, og vi sier alltid fra hvis vi mener du er bedre tjent med noe annet." } },
-    { "@type": "Question", "name": "Hvor holder klinikken til?", "acceptedAnswer": { "@type": "Answer", "text": "Akersveien 19, 0177 Oslo — midt i sentrum, få minutter fra Stortinget og Grønland." } },
+    { "@type": "Question", "name": "Hvor holder klinikken til?", "acceptedAnswer": { "@type": "Answer", "text": "Akersveien 19, 0177 Oslo — i Oslo sentrum. Nærmeste T-banestasjon er Stortinget." } },
     { "@type": "Question", "name": "Hvordan booker jeg?", "acceptedAnswer": { "@type": "Answer", "text": "Du velger terapeut og tid selv på bookingsiden. Praktiske spørsmål tar du direkte med terapeuten du har booket hos." } }
   ]
 }
@@ -186,6 +183,17 @@
   summary::after { content:"+"; font-family:Newsreader,serif; font-size:20px; color:var(--kobber); }
   details[open] summary::after { content:"–"; }
   .sidekol { border-left:1px solid var(--strek2); padding-left:36px; display:flex; flex-direction:column; gap:18px; }
+  .praktisk-besok { border-top:1px solid var(--strek); border-bottom:1px solid var(--strek); background:var(--papir2); }
+  .praktisk-besok-inner { display:grid; grid-template-columns:0.72fr 1.48fr; gap:72px; }
+  .praktisk-intro { display:flex; flex-direction:column; gap:14px; }
+  .praktisk-intro p:last-child { font-size:15.5px; line-height:1.7; color:var(--tekst3); max-width:34ch; }
+  .praktisk-grid { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--strek2); }
+  .praktisk-punkt { min-width:0; padding:24px 26px 25px 0; border-bottom:1px solid var(--strek2); }
+  .praktisk-punkt:nth-child(even) { padding-right:0; padding-left:26px; border-left:1px solid var(--strek2); }
+  .praktisk-punkt.apningstid { grid-column:1 / -1; padding-right:0; border-left:0; }
+  .praktisk-punkt h3 { margin-bottom:9px; font-size:21px; font-weight:400; line-height:1.2; color:var(--gron); }
+  .praktisk-punkt p { font-size:14.5px; line-height:1.65; color:var(--tekst3); }
+  .praktisk-punkt .lenke { display:inline-block; margin-top:10px; font-size:13.5px; }
   footer { background:#1C1A17; color:#CFC9BC; }
   footer a { color:#CFC9BC; font-size:14.5px; }
   footer a:hover { color:#E3B893; }
@@ -195,12 +203,19 @@
     .merke span, nav.hoved .lenker { display:none; }
     .burger { display:inline-flex; }
     .grid, .g-hero, .g-2, .g-3, .sitat-grid, .f-grid { grid-template-columns:1fr !important; gap:32px !important; }
+    .praktisk-besok-inner { grid-template-columns:1fr; gap:36px; }
+    .praktisk-intro p:last-child { max-width:none; }
     .fakta-rad { grid-template-columns:1fr 1fr; }
     .fakta-rad div { border-left:0 !important; padding:18px 0 !important; }
     .sidekol { border-left:0; padding-left:0; border-top:1px solid var(--strek2); padding-top:24px; }
     section { padding:76px 0; }
     h1 { font-size:clamp(32px,8vw,44px) !important; }
     h2 { font-size:clamp(26px,6.5vw,34px) !important; }
+  }
+  @media (max-width:520px) {
+    .praktisk-grid { grid-template-columns:1fr; }
+    .praktisk-punkt, .praktisk-punkt:nth-child(even) { padding:21px 0 22px; border-left:0; }
+    .praktisk-punkt.apningstid { grid-column:auto; }
   }
   @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } [data-reveal] { opacity:1 !important; transform:none !important; } }
 </style>
@@ -418,7 +433,7 @@
         <details><summary>Gjør det vondt?</summary><p style="font-size:16px;line-height:1.7;color:var(--tekst3);margin:0 0 24px;max-width:60ch;">Nei. Berøringen er så lett at mange blir overrasket. Ingen manipulasjon, ingen knekk.</p></details>
         <details><summary>Hva kan jeg forvente etterpå?</summary><p style="font-size:16px;line-height:1.7;color:var(--tekst3);margin:0 0 24px;max-width:60ch;">De fleste merker bedre søvn, mindre stress og mer ro. Over tid opplever mange mer emosjonell balanse og robusthet samt økt mental klarhet. Noen kjenner seg litt sårbare det første døgnet — det er en normal reaksjon.</p></details>
         <details><summary>Hvor mange timer trenger jeg?</summary><p style="font-size:16px;line-height:1.7;color:var(--tekst3);margin:0 0 24px;max-width:60ch;">Det varierer. Vi anbefaler tre timer før du vurderer effekten, og vi sier alltid fra hvis vi mener du er bedre tjent med noe annet.</p></details>
-        <details><summary>Hvor holder klinikken til?</summary><p style="font-size:16px;line-height:1.7;color:var(--tekst3);margin:0 0 24px;max-width:60ch;">Akersveien 19, 0177 Oslo — midt i sentrum, få minutter fra Stortinget og Grønland.</p></details>
+        <details><summary>Hvor holder klinikken til?</summary><p style="font-size:16px;line-height:1.7;color:var(--tekst3);margin:0 0 24px;max-width:60ch;">Akersveien 19, 0177 Oslo — i Oslo sentrum. Nærmeste T-banestasjon er Stortinget.</p></details>
         <details><summary>Hvordan booker jeg?</summary><p style="font-size:16px;line-height:1.7;color:var(--tekst3);margin:0 0 24px;max-width:60ch;">Du velger terapeut og tid selv på bookingsiden. Praktiske spørsmål tar du direkte med terapeuten du har booket hos.</p></details>
       </div>
     </div>
@@ -433,6 +448,45 @@
     </div>
   </section>
 
+  <section class="praktisk-besok" aria-labelledby="praktisk-tittel">
+    <div class="wrap praktisk-besok-inner">
+      <div class="praktisk-intro">
+        <p class="kicker">Praktisk informasjon</p>
+        <h2 id="praktisk-tittel" style="font-weight:300;font-size:42px;line-height:1.1;">Før du kommer</h2>
+        <p>Her finner du det viktigste om reisen til klinikken og hva du kan forvente ved ankomst.</p>
+      </div>
+
+      <div class="praktisk-grid">
+        <div class="praktisk-punkt">
+          <h3>Adresse og kart</h3>
+          <p>Akersveien 19, 0177 Oslo</p>
+          <a class="lenke" href="https://www.google.com/maps/search/?api=1&amp;query=Akersveien+19%2C+0177+Oslo">Åpne i Google Maps&nbsp;↗</a>
+        </div>
+
+        <div class="praktisk-punkt">
+          <h3>Kollektivtransport</h3>
+          <p>Nærmeste T-banestasjon er Stortinget. Nationaltheatret er et alternativ hvis du kommer med tog eller Flytog.</p>
+        </div>
+
+        <div class="praktisk-punkt">
+          <h3>Parkering</h3>
+          <p>Det er ofte mulig å finne korttidsparkering i gatene ved klinikken, normalt med makstid på to timer. Sjekk skiltingen på stedet.</p>
+        </div>
+
+        <div class="praktisk-punkt">
+          <h3>Etasje og tilgjengelighet</h3>
+          <p>Klinikken ligger i 2. etasje og har ikke heis. Det er derfor ikke trinnfri adkomst.</p>
+        </div>
+
+        <div class="praktisk-punkt apningstid">
+          <h3>Behandlingstider</h3>
+          <p>Behandlinger tilbys mandag–fredag mellom kl. 08–21. Tilgjengelige tider varierer mellom terapeutene.</p>
+          <a class="lenke" href="/terapeuter">Se terapeutene og bookingtider&nbsp;↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -444,7 +498,7 @@
       </div>
       <p style="font-size:15px;line-height:1.7;max-width:34ch;">Akersveien 19, 0177 Oslo</p>
       <p style="font-size:15px;line-height:1.7;"><a href="mailto:post@cranio.no">post@cranio.no</a></p>
-      <p style="font-size:13.5px;line-height:1.65;color:#9A9385;max-width:40ch;">Praktiske spørsmål og beskjeder om timen tar du direkte med terapeuten din — kontaktinfo finner du på terapeutsiden.</p>
+      <p style="font-size:13.5px;line-height:1.65;color:#9A9385;max-width:40ch;">Praktiske spørsmål og beskjeder om timen tar du direkte med terapeuten din — telefonnummer og annen kontaktinformasjon finner du på <a href="/terapeuter" style="border-bottom:1px solid #605A50;">terapeutsiden</a>.</p>
     </div>
     <nav style="display:flex;flex-direction:column;gap:12px;" aria-label="Meny">
       <p class="kicker">Meny</p>
@@ -464,7 +518,7 @@
     </nav>
   </div>
   <div class="wrap" style="padding-bottom:40px;">
-    <p style="border-top:1px solid #3A3630;padding-top:22px;font-size:12.5px;color:#7E776B;">© 2026 Cranioklinikken Oslo — en del av Vaajma</p>
+    <p style="border-top:1px solid #3A3630;padding-top:22px;font-size:12.5px;color:#938B7D;">© 2026 Cranioklinikken Oslo — en del av Vaajma AS · Org.nr. 925 955 019</p>
   </div>
 </footer>
 
