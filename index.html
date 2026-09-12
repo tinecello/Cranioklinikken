@@ -267,7 +267,7 @@
       <figure style="margin:0;display:flex;flex-direction:column;gap:10px;">
         <div class="stemningsvideo">
           <video id="klinikkvideo" src="assets/klinikk-atmosfaere-v2.mp4" muted loop playsinline poster="assets/klinikk-poster-v2.jpg" width="720" height="960" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#EDE8DE;" aria-label="Stemningsvideo fra klinikken i Akersveien 19"></video>
-          <button class="video-knapp" id="klinikkvideo-knapp" type="button" aria-controls="klinikkvideo">Spill av video</button>
+          <button class="video-knapp" id="klinikkvideo-knapp" type="button" aria-controls="klinikkvideo">Spill av</button>
         </div>
         <figcaption style="font-size:11.5px;color:#8A8272;">Klinikken, Akersveien 19</figcaption>
       </figure>
@@ -545,7 +545,7 @@
   var brukerHarPauset = redusertBevegelse;
 
   function oppdaterVideoknapp() {
-    videoknapp.textContent = klinikkvideo.paused ? 'Spill av video' : 'Pause video';
+    videoknapp.textContent = klinikkvideo.paused ? 'Spill av' : 'Pause';
   }
 
   function spillKlinikkvideo() {
