@@ -110,6 +110,9 @@
   .btn:hover { background:var(--kobber); color:var(--tekst); }
   .btn-lys { background:var(--papir); color:var(--gron); }
   .lenke { border-bottom:1px solid #B6AF9F; padding-bottom:3px; color:var(--tekst3); font-size:15px; }
+  .stemningsvideo { position:relative; }
+  .video-knapp { position:absolute; right:12px; bottom:12px; min-height:44px; padding:10px 14px; border:1px solid rgba(247,244,238,0.42); border-radius:2px; background:rgba(28,26,23,0.78); color:var(--papir); font:inherit; font-size:12px; font-weight:500; letter-spacing:0.06em; cursor:pointer; backdrop-filter:blur(5px); }
+  .video-knapp:hover { background:var(--papir); color:var(--gron); }
   .skip { position:absolute; left:-9999px; }
   .skip:focus { left:8px; top:8px; z-index:100; background:var(--gron); color:var(--papir); padding:10px 16px; }
   header { position:sticky; top:0; z-index:50; background:rgba(247,244,238,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--strek); }
@@ -262,7 +265,10 @@
         </div>
       </div>
       <figure style="margin:0;display:flex;flex-direction:column;gap:10px;">
-        <video src="assets/klinikk-atmosfaere.mp4" autoplay muted loop playsinline poster="assets/klinikk-poster.jpg" width="880" height="1173" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#EDE8DE;" aria-label="Stemningsvideo fra klinikken i Akersveien 19"></video>
+        <div class="stemningsvideo">
+          <video id="klinikkvideo" src="assets/klinikk-atmosfaere.mp4" muted loop playsinline poster="assets/klinikk-poster.jpg" width="880" height="1173" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#EDE8DE;" aria-label="Stemningsvideo fra klinikken i Akersveien 19"></video>
+          <button class="video-knapp" id="klinikkvideo-knapp" type="button" aria-controls="klinikkvideo">Spill av video</button>
+        </div>
         <figcaption style="font-size:11.5px;color:#8A8272;">Klinikken, Akersveien 19</figcaption>
       </figure>
     </div>
@@ -531,6 +537,46 @@
     b.textContent = open ? 'Meny' : 'Lukk';
   });
   s.addEventListener('click', function (e) { if (e.target.tagName === 'A') { s.dataset.open = 'false'; b.textContent = 'Meny'; b.setAttribute('aria-expanded','false'); } });
+
+  var klinikkvideo = document.getElementById('klinikkvideo');
+  var videoknapp = document.getElementById('klinikkvideo-knapp');
+  var redusertBevegelse = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var brukerHarPauset = redusertBevegelse;
+
+  function oppdaterVideoknapp() {
+    videoknapp.textContent = klinikkvideo.paused ? 'Spill av video' : 'Pause video';
+  }
+
+  function spillKlinikkvideo() {
+    var avspilling = klinikkvideo.play();
+    if (avspilling) avspilling.catch(oppdaterVideoknapp);
+  }
+
+  videoknapp.addEventListener('click', function () {
+    if (klinikkvideo.paused) {
+      brukerHarPauset = false;
+      spillKlinikkvideo();
+    } else {
+      brukerHarPauset = true;
+      klinikkvideo.pause();
+    }
+  });
+  klinikkvideo.addEventListener('play', oppdaterVideoknapp);
+  klinikkvideo.addEventListener('pause', oppdaterVideoknapp);
+
+  if (!redusertBevegelse) spillKlinikkvideo();
+  oppdaterVideoknapp();
+
+  if ('IntersectionObserver' in window) {
+    var videoObservator = new IntersectionObserver(function (poster) {
+      if (poster[0].isIntersecting) {
+        if (!brukerHarPauset && !redusertBevegelse) spillKlinikkvideo();
+      } else {
+        klinikkvideo.pause();
+      }
+    }, { threshold:0.15 });
+    videoObservator.observe(klinikkvideo);
+  }
 
   var plager = [
     ['Jeg sover dårlig', 'Søvn er ofte det første som endrer seg. Når nervesystemet får ro, faller innsovningen lettere på plass — mange merker en forbedring allerede etter første eller andre time.'],
